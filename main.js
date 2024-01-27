@@ -1,16 +1,19 @@
 // Pobrać inputa oraz diva
 const input = document.querySelector('input');
 const div = document.querySelector('div');
-const password = "test";
-const message = "Hasło poprawne!";
+const passwords = ['test', 'witam', 'Ania'];
+const messages = ['Hasło jest poprawne!', 'Witam użytkowniku...', 'Cześć Ania!'];
 
 input.addEventListener('input', (e) => {
-    if (password === e.target.value) {
-        div.textContent = message;
-        e.target.value = '';
-    } else {
-        div.textContent = '';
-    }
+    div.textContent = '';
+    const text = e.target.value;
+
+    passwords.forEach((password, index) => {
+        if (password === text) {
+            div.textContent = messages[index];
+            e.target.value = ''
+        }
+    })
 })
 
 input.addEventListener('focus', (e) => {
